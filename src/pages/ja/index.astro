@@ -1,0 +1,388 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Note from '~/components/widgets/Note.astro';
+import Features from '~/components/widgets/Features.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Content from '~/components/widgets/Content.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+import { t } from '~/i18n/translations';
+
+const locale = 'ja';
+
+const metadata = {
+  title: 'AstroWind — Astro + Tailwind CSSでウェブサイトを作成する無料テンプレート',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    actions={[
+      {
+        variant: 'primary',
+        text: t(locale, 'hero.cta.primary'),
+        href: 'https://github.com/arthelokyo/astrowind',
+        target: '_blank',
+        icon: 'tabler:download',
+      },
+      { text: t(locale, 'hero.cta.secondary'), href: '#features' },
+    ]}
+    image={{ src: '~/assets/images/hero-image.png', alt: 'AstroWind Hero Image' }}
+  >
+    <Fragment slot="title">
+      {t(locale, 'hero.title.prefix')} <span class="hidden xl:inline">{t(locale, 'hero.title.inline')}</span>
+      <span class="text-accent dark:text-white"> {t(locale, 'hero.title.accent')}</span> {t(locale, 'hero.title.suffix')}
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <span class="hidden sm:inline">
+        <span class="font-semibold">{t(locale, 'hero.subtitle.bold')}</span> {t(locale, 'hero.subtitle.main')}</span
+      >
+      <span class="block mb-1 sm:hidden font-bold text-blue-600">{t(locale, 'hero.subtitle.mobile')}</span>
+      {t(locale, 'hero.subtitle.description')}
+    </Fragment>
+  </Hero>
+
+  <!-- Note Widget ******************* -->
+
+  <Note title={t(locale, 'note.title')} description={t(locale, 'note.description')} />
+
+  <!-- Features Widget *************** -->
+
+  <Features
+    id="features"
+    tagline={t(locale, 'features.tagline')}
+    title={t(locale, 'features.title')}
+    subtitle={t(locale, 'features.subtitle')}
+    items={[
+      {
+        title: t(locale, 'features.item1.title'),
+        description: t(locale, 'features.item1.description'),
+        icon: 'tabler:brand-tailwind',
+      },
+      {
+        title: t(locale, 'features.item2.title'),
+        description: t(locale, 'features.item2.description'),
+        icon: 'tabler:components',
+      },
+      {
+        title: t(locale, 'features.item3.title'),
+        description: t(locale, 'features.item3.description'),
+        icon: 'tabler:list-check',
+      },
+      {
+        title: t(locale, 'features.item4.title'),
+        description: t(locale, 'features.item4.description'),
+        icon: 'tabler:rocket',
+      },
+      {
+        title: t(locale, 'features.item5.title'),
+        description: t(locale, 'features.item5.description'),
+        icon: 'tabler:arrows-right-left',
+      },
+      {
+        title: t(locale, 'features.item6.title'),
+        description: t(locale, 'features.item6.description'),
+        icon: 'tabler:bulb',
+      },
+    ]}
+  />
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isReversed
+    tagline="テンプレートの中身"
+    title="AstroWindの設計図：楽しさと機能性の融合！"
+    items={[
+      {
+        title: 'Astro 5.0上に構築',
+        description: 'このモダンな静的サイトジェネレーターのパフォーマンスと開発者フレンドリーな機能の恩恵を受けています。',
+      },
+      {
+        title: 'Tailwind CSSでスタイリング',
+        description: 'この非常に人気のあるユーティリティファーストCSSフレームワークで、迅速なデザインと一貫したスタイリングを実現。',
+      },
+      {
+        title: 'クロスブラウザ互換性',
+        description:
+          'さまざまなウェブブラウザでウェブサイトの見た目と機能が一貫していることを確認し、すべてのユーザーにシームレスな体験を提供。',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'カラフルな画像',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">モダンな基盤の上に構築</h3>
+      業界をリードするプラクティスを取り入れて競争優位性を獲得
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isAfterContent
+    items={[
+      {
+        title: '高いカスタマイズ性',
+        description:
+          'ブランドのアイデンティティと要件に合わせてテンプレートを簡単に調整し、ウェブサイトを独自のものにして時間を節約。',
+      },
+      {
+        title: '複数のレイアウトオプション',
+        description: 'コンテンツを最適に表示する構造を見つけるために、さまざまなレイアウトオプションを探索。',
+      },
+      {
+        title: '完全レスポンシブデザイン',
+        description:
+          'さまざまなデバイスと画面サイズでウェブサイトの最適なパフォーマンスを確保し、一貫した快適なユーザー体験を提供。',
+      },
+      {
+        title: 'メディアの統合',
+        description: 'コンテンツを強化し、訪問者を効果的に惹きつける画像、動画、マルチメディア要素をシームレスに組み込み。',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2194&q=80',
+      alt: '設計図画像',
+    }}
+  >
+    <Fragment slot="content">オンラインプレゼンスが本当にあなたを表現していることを確認。</Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isReversed
+    isAfterContent
+    items={[
+      {
+        title: 'ユーザーエンゲージメントの向上',
+        description:
+          'インタラクティブな要素、直感的なナビゲーション、視覚的に魅力的なレイアウトでオーディエンスを魅了し、長時間の訪問を促進。',
+      },
+      {
+        title: '継続的な改善',
+        description: '定期的なアップデートと改善を通じて、ウェブサイトが最新のトレンドとテクノロジーに対応していることを確認。',
+      },
+      {
+        title: '時間とリソースの効率化',
+        description:
+          'ゼロからウェブサイトを構築する時間のかかるプロセスをスキップし、AstroWindでオンラインプレゼンスをより早く立ち上げ。',
+      },
+      {
+        title: 'コミュニティサポート',
+        description:
+          '成長するAstroWindコミュニティに参加して、インサイト、リソース、支援を得て、ウェブ開発の旅で一人ぼっちにならないように。',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1611462985358-60d3498e0364?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: '宇宙飛行士の画像',
+    }}
+  >
+    <Fragment slot="content">成長と成功を促進するために設計。</Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Steps Widget ****************** -->
+
+  <Steps
+    title="AstroWindで夢のウェブサイトをすぐに立ち上げましょう。"
+    items={[
+      {
+        title: 'ステップ1: <span class="font-medium">ダウンロード</span>',
+        description:
+          'GitHubからスタート！AstroWindテンプレートをフォークするか、「このテンプレートを使用」をクリックするだけ。数クリックで基盤が完成します。',
+        icon: 'tabler:package',
+      },
+      {
+        title: 'ステップ2: <span class="font-medium">コンテンツを追加</span>',
+        description:
+          'ビジョンを注ぎ込みましょう。画像、テキストなどを追加して、デジタル空間に命を吹き込みます。コンテンツがあなたのストーリーを語ります。',
+        icon: 'tabler:letter-case',
+      },
+      {
+        title: 'ステップ3: <span class="font-medium">スタイルをカスタマイズ</span>',
+        description:
+          '個人的なタッチを加えましょう。色、フォント、レイアウトを調整して、ぴったりと感じるまで。AstroWindであなたの個性を増幅！',
+        icon: 'tabler:paint',
+      },
+      {
+        title: '準備完了！',
+        icon: 'tabler:check',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
+      alt: 'ステップ画像',
+    }}
+  />
+
+  <!-- Features2 Widget ************** -->
+
+  <Features2
+    title="最もよく使われるウィジェット"
+    subtitle="Tailwind CSSを使用してウェブサイトを構築するために頻繁に使用されるコンポーネント"
+    tagline="コンポーネント"
+    items={[
+      {
+        title: 'ヘッダー',
+        description: 'GPSなしで運転したことある？ドーン！だからウェブサイトには方向を示すヘッダーが必要なんです。',
+        icon: 'flat-color-icons:template',
+      },
+      {
+        title: 'ヒーロー',
+        description: 'スーパーヒーローの着地を想像してみて — カッコいいでしょ？それがヒーローセクションの仕事です！',
+        icon: 'flat-color-icons:gallery',
+      },
+      {
+        title: '機能',
+        description: 'ウェブサイトが自慢のスーパーパワーを見せびらかす場所。ここでは自慢し放題！',
+        icon: 'flat-color-icons:approval',
+      },
+      {
+        title: 'コンテンツ',
+        description: 'サイトの本質に飛び込みましょう。コンテンツがなければ、ただのウィンドウショッピングです。コンテンツは王様。',
+        icon: 'flat-color-icons:document',
+      },
+      {
+        title: 'コール・トゥ・アクション',
+        description: '「やって！やって！」といつも促してくる熱心な友達？そう、このボタンが冒険へと後押しします。',
+        icon: 'flat-color-icons:advertising',
+      },
+      {
+        title: '料金',
+        description: 'ウェブサイト界のデザートメニューをご覧あれ。魅惑的な選択肢が待っています。抵抗できますか？',
+        icon: 'flat-color-icons:currency-exchange',
+      },
+      {
+        title: 'テスティモニアル',
+        description: 'おしゃべりコーナーへようこそ！ここでは他の訪問者がジューシーな詳細を共有します。',
+        icon: 'flat-color-icons:voice-presentation',
+      },
+      {
+        title: 'コンタクト',
+        description: 'デジタルメールボックスですが、もっと速い！一言書いて、質問して、バーチャルハイタッチを送りましょう。',
+        icon: 'flat-color-icons:business-contact',
+      },
+      {
+        title: 'フッター',
+        description: 'フッターは映画のクレジットみたいだけど、イースターエッグが散りばめられています。探してみて！',
+        icon: 'flat-color-icons:database',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <!-- HighlightedPosts Widget ******* -->
+
+  <BlogLatestPosts
+    title="ブログでさらに多くのコンテンツを見つけよう"
+    information={`ブログはAstroWindのドキュメントを表示するために使用されます。
+                        新しい記事はそれぞれ、Astro + Tailwind CSSを使用してウェブサイトを作成するエキスパートになるために必要な重要なステップとなります。
+                        Astroは非常に興味深い技術です。ありがとう。
+                `}
+  />
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    title="よくある質問"
+    subtitle="以下の質問を掘り下げて、AstroWindが提供する強力な機能と、ウェブ開発の旅をどのように向上させるかについてインサイトを得てください。"
+    tagline="FAQ"
+    classes={{ container: 'max-w-6xl' }}
+    items={[
+      {
+        title: 'なぜAstroWind？',
+        description:
+          'AstroWindは最新のウェブ技術を活用した、高パフォーマンスで開発者フレンドリーなテンプレートです。スタートアップから企業まで、あらゆる規模のプロジェクトに対応します。',
+      },
+      {
+        title: '始めるには何が必要？',
+        description:
+          'Node.jsとお好みのパッケージマネージャーだけです。テンプレートをクローンして、依存関係をインストールすれば、すぐに開発を始められます。',
+      },
+      {
+        title: 'Astro + Tailwind CSSテンプレートのインストール方法は？',
+        description:
+          'GitHubリポジトリからテンプレートをフォークまたはクローンし、npm installを実行して依存関係をインストールします。その後、npm run devで開発サーバーを起動できます。',
+      },
+      {
+        title: 'カスタマイズはどの程度できますか？',
+        description:
+          'テンプレートは高度にカスタマイズ可能です。色、フォント、レイアウト、コンポーネントなど、あらゆる側面を簡単に変更できます。',
+      },
+      {
+        title: 'デプロイはどうすればよいですか？',
+        description:
+          'Vercel、Netlify、GitHub Pagesなど、さまざまなプラットフォームに簡単にデプロイできます。静的サイトとして生成されるため、ほぼすべてのホスティングサービスに対応しています。',
+      },
+      {
+        title: 'サポートはどこで受けられますか？',
+        description:
+          'GitHubのIssuesやDiscussionsを通じてコミュニティサポートを受けられます。活発なコミュニティがあなたの質問に答えてくれます。',
+      },
+    ]}
+  />
+
+  <!-- Stats Widget ****************** -->
+
+  <Stats
+    stats={[
+      { title: t(locale, 'stats.downloads'), amount: '132K' },
+      { title: t(locale, 'stats.stars'), amount: '24.8K' },
+      { title: t(locale, 'stats.forks'), amount: '10.3K' },
+      { title: t(locale, 'stats.users'), amount: '48.4K' },
+    ]}
+  />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: t(locale, 'cta.button'),
+        href: 'https://github.com/arthelokyo/astrowind',
+        target: '_blank',
+        icon: 'tabler:download',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      {t(locale, 'cta.title.part1')}&nbsp;+&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap"
+        >{t(locale, 'cta.title.part2')}</span
+      >
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      {t(locale, 'cta.subtitle')}
+    </Fragment>
+  </CallToAction>
+</Layout>
